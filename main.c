@@ -5,14 +5,13 @@
 #include <time.h>
 #include <math.h>
 
-double sdot(float* a, float* b, int n);
+float sdot(float* a, float* b, int n);
 
-extern void asmhello();
+extern float sdot_asm(float *a, float *b, int n);
 int main(int argc, char* argv[]) {
-	asmhello();
-	int vector_size = pow(2, 30);
+	printf("Running program...\n");
 
-	clock_t begin = clock();
+	int vector_size = pow(2, 30);
 	float* a = (float*)malloc(vector_size * sizeof(float));
 	float* b = (float*)malloc(vector_size * sizeof(float));
 	// sanity check for malloc
@@ -28,11 +27,28 @@ int main(int argc, char* argv[]) {
 		b[i] = (float)(i + 1);
 	}
 
+	clock_t begin = clock();
+	float asm_result = sdot_asm(a, b, vector_size);
 	clock_t end = clock();
+
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	double result = sdot(a, b, vector_size);
-	printf("Dot product: %f", result);
-	printf("\nTime spent: %f seconds\n", time_spent);
+	printf("Dot product from asm kernel: %f\n", asm_result);
+	printf("Time spent: %f seconds\n", time_spent);
+
+	begin = clock();
+	float result = sdot(a, b, vector_size);
+	end = clock();
+
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+	printf("Dot product from C kernel: %f\n", result);
+	printf("Time spent: %f seconds\n", time_spent);
+
+	if(result == asm_result) {
+		printf("asm kernel results match with the C kernel!\n");
+	} else {
+		printf("Results do not match!\n");
+	}
+
 	free(a);
 	free(b);
 
@@ -40,10 +56,10 @@ int main(int argc, char* argv[]) {
 }
 
 // vector dot product
-double sdot(float* a, float* b, int n) {
-	double dprod = 0;
+float sdot(float* a, float* b, int n) {
+	float dprod = 0;
 	for (int i = 0; i < n; i++) {
-		dprod += (double)a[i] * (double)b[i];
+		dprod += a[i] * b[i];
 	}
 
 	return dprod;
