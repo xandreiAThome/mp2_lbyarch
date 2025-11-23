@@ -19,8 +19,8 @@ sdot_asm:
 	je .done
 	movss xmm0, [r10 + rcx * 4]
 	movss xmm1, [r11 + rcx * 4]
-	vmulss xmm0, xmm1
-	vaddss xmm2, xmm0
+	mulss xmm0, xmm1
+	addss xmm2, xmm0
 	inc rcx
 	jmp .loop
 
