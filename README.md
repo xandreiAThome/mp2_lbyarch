@@ -48,6 +48,14 @@ float sdot(float* a, float* b, int n) {
 may require multiple memory accesses, aside from accessing the arrays, for each iteration of the loop, whereas an assembly implementation could potentially
 load multiple values into registers and perform operations directly on them while only requiring memory access on the arrays themselves, reducing the number of memory accesses required.
 
+### C Kernel Output Image (Debug Build)
+
+![c-kernel](debug_c_kernel.png)
+
+### ASM Kernel Output Image (Debug Build)
+
+![asm-kernel](debug_asm_kernel.png)
+
 #### Release Build Results:
 
 | Asm Kernel | C Kernel  |
@@ -79,10 +87,10 @@ load multiple values into registers and perform operations directly on them whil
 When testing the code in the Release Build, the performance between the two kernels became much closer.
 With the C kernel slightly outperforming the assembly kernel on average. This is likely due to the optimizations performed by the compiler in Release mode.
 
-### C Kernel Output Image
+### C Kernel Output Image (Release Build)
 
 ![c-kernel](c_kernel_output.png)
 
-### ASM Kernel Output Image
+### ASM Kernel Output Image (Release Build)
 
 ![asm-kernel](asm_kernel_output.png)
