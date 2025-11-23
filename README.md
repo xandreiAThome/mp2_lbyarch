@@ -1,5 +1,10 @@
 # mp2_lbyarch
 
+#### Members:
+
+- Tremayne Dela Cruz
+- Ellexandrei Esponilla
+
 #### Execution Time of Assembly and C Kernels for 20 Runs
 
 ### Debug Build Results:
