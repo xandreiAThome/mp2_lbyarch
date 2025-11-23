@@ -28,19 +28,19 @@ int main(int argc, char* argv[]) {
 	}
 
 	clock_t begin = clock();
-	float asm_result = sdot_asm(a, b, vector_size);
+	float result = sdot(a, b, vector_size);
 	clock_t end = clock();
 
 	double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Dot product from asm kernel: %f\n", asm_result);
+	printf("Dot product from C kernel: %f\n", result);
 	printf("Time spent: %f seconds\n", time_spent);
 
 	begin = clock();
-	float result = sdot(a, b, vector_size);
+	float asm_result = sdot_asm(a, b, vector_size);
 	end = clock();
 
 	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Dot product from C kernel: %f\n", result);
+	printf("Dot product from asm kernel: %f\n", asm_result);
 	printf("Time spent: %f seconds\n", time_spent);
 
 	if(result == asm_result) {

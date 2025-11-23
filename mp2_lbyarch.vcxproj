@@ -134,6 +134,9 @@
       <FileType>Document</FileType>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">nasm -f win64 kernel.asm</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kernel.obj</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">nasm -f win64 kernel.asm</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kernel.obj;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
