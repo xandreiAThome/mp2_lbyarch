@@ -1,6 +1,6 @@
 # mp2_lbyarch (NOT WORKING)
 
-This is Tremayne Dela Cruz's individual output. Unfortunately I am unable to build this project in Visual Studio Community 2026. Everytime I build it pops up with an error of...
+This is Tremayne Dela Cruz's individual output. Unfortunately I am unable to build this project in Visual Studio Community 2026. Everytime I build it, it pops up with an error of...
 
 ![build-errorl](build_error.png)
 
