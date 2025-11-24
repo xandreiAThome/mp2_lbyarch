@@ -5,6 +5,8 @@
 - Tremayne Dela Cruz
 - Ellexandrei Esponilla
 
+#### [Demo video](https://youtu.be/O_20_UlDSJw)
+
 #### Execution Time of Assembly and C Kernels for 20 Runs
 
 ### Debug Build Results:
